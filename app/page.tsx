@@ -1,101 +1,157 @@
 import Image from "next/image";
+import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { SkillCard } from "@/components/skill-card";
+import { ProjectCard } from "@/components/project-card";
 
-export default function Home() {
+export default function Portfolio() {
+  // Datos de ejemplo para proyectos
+  const projects = [
+    {
+      title: "E-commerce App",
+      description:
+        "Una aplicación de comercio electrónico completa con carrito de compras, pagos y panel de administración.",
+      imageSrc: "/placeholder.svg?height=300&width=500",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      demoUrl: "https://example.com",
+      codeUrl: "https://github.com/example/project",
+    },
+    {
+      title: "Sistema de Gestión",
+      description:
+        "Sistema para gestionar inventario, clientes y ventas para pequeñas empresas.",
+      imageSrc: "/placeholder.svg?height=300&width=500",
+      technologies: ["Next.js", "PostgreSQL", "Tailwind CSS", "Docker"],
+      demoUrl: "https://example.com",
+      codeUrl: "https://github.com/example/project",
+    },
+    {
+      title: "App de Finanzas Personales",
+      description:
+        "Aplicación para seguimiento de gastos, presupuestos y análisis financiero personal.",
+      imageSrc: "/placeholder.svg?height=300&width=500",
+      technologies: ["React", "TypeScript", "Firebase", "Chart.js"],
+      demoUrl: "https://example.com",
+      codeUrl: "https://github.com/example/project",
+    },
+    {
+      title: "Portal de Noticias",
+      description:
+        "Portal de noticias con categorías, búsqueda y sistema de comentarios.",
+      imageSrc: "/placeholder.svg?height=300&width=500",
+      technologies: ["Next.js", "MySQL", "Redis", "Tailwind CSS"],
+      demoUrl: "https://example.com",
+      codeUrl: "https://github.com/example/project",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <main className="min-h-screen bg-background transition-colors duration-300">
+      <ThemeToggle />
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+        {/* Header Section */}
+        <header className="flex flex-col md:flex-row items-center gap-6 mb-12">
+          <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/profile5.jpg"
+              alt="Felipe Oliva"
+              fill
+              className="object-cover"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          </div>
+          <div className="text-center md:text-left">
+            <h1 className="text-3xl md:text-4xl font-bold">Felipe Oliva</h1>
+            <p className="text-xl text-muted-foreground mt-2">
+              Bienvenido a mi portfolio. Soy Analista en Sistemas.
+            </p>
+          </div>
+        </header>
+
+        {/* About Me Section */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold border-b pb-2 mb-4">Sobre Mí</h2>
+          <p className="text-muted-foreground">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in
+            dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed
+            auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in
+            nulla enim. Phasellus molestie magna non est bibendum non venenatis
+            nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris
+            iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.
+            Proin quis tortor orci. Etiam at risus et justo dignissim congue.
+          </p>
+        </section>
+
+        {/* Projects Section */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold border-b pb-2 mb-4">Proyectos</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                imageSrc={project.imageSrc}
+                technologies={project.technologies}
+                demoUrl={project.demoUrl}
+                codeUrl={project.codeUrl}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Skills Section */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold border-b pb-2 mb-4">Skills</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <SkillCard icon="nodejs" name="Node.js" />
+            <SkillCard icon="redis" name="Redis" />
+            <SkillCard icon="postman" name="Postman" />
+            <SkillCard icon="docker" name="Docker" />
+            <SkillCard icon="nginx" name="Nginx" />
+            <SkillCard icon="mysql" name="MySQL" />
+            <SkillCard icon="postgresql" name="PostgreSQL" />
+            <SkillCard icon="mongodb" name="MongoDB" />
+            <SkillCard icon="react" name="React" />
+            <SkillCard icon="nextjs" name="Next.js" />
+            <SkillCard icon="tailwind" name="Tailwind CSS" />
+            <SkillCard icon="typescript" name="TypeScript" />
+            <SkillCard icon="javascript" name="JavaScript" />
+            <SkillCard icon="git" name="Git" />
+            <SkillCard icon="github" name="GitHub" />
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold border-b pb-2 mb-4">Contacto</h2>
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+            <Button variant="outline" className="flex items-center gap-2">
+              <Linkedin className="h-5 w-5" />
+              LinkedIn
+            </Button>
+            <Button variant="outline" className="flex items-center gap-2">
+              <Github className="h-5 w-5" />
+              GitHub
+            </Button>
+            <Button variant="outline" className="flex items-center gap-2">
+              <Phone className="h-5 w-5" />
+              Teléfono
+            </Button>
+            <Button variant="outline" className="flex items-center gap-2">
+              <Mail className="h-5 w-5" />
+              Email
+            </Button>
+          </div>
+        </section>
+
+        <footer className="text-center text-muted-foreground mt-12 pt-4 border-t">
+          <p>
+            © {new Date().getFullYear()} Felipe Oliva. Todos los derechos
+            reservados.
+          </p>
+        </footer>
+      </div>
+    </main>
   );
 }
