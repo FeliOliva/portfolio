@@ -3,11 +3,24 @@ import { Github, Linkedin, Mail, Phone, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SkillCard } from "@/components/skill-card";
-import { ProjectCard } from "@/components/project-card";
+import { ProjectCard, type ProjectType } from "@/components/project-card";
 
 export default function Portfolio() {
   // Datos de proyectos
-  const projects = [
+  const projects: {
+    title: string;
+    description: string;
+    longDescription?: string;
+    imageSrc: string;
+    technologies: string[];
+    demoUrl?: string;
+    codeUrl?: string | null;
+    screenshots?: { url: string; caption: string }[];
+    video?: { url: string; caption: string };
+    features?: string[];
+    architecture?: string;
+    type: ProjectType;
+  }[] = [
     {
       title: "Sistema de Gestión de Ventas",
       description:
@@ -127,12 +140,13 @@ Contenedorización:
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Header Section */}
         <header className="flex flex-col md:flex-row items-center gap-6 mb-12">
-          <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20">
+          <div className="relative w-44 h-44 rounded-full overflow-hidden border-4 border-primary/20">
             <Image
               src="/Profile3.jpeg"
               alt="Felipe Oliva"
               fill
-              className="object-cover"
+              className="object-cover object-center scale-[1.02]"
+              priority
             />
           </div>
           <div className="text-center md:text-left">

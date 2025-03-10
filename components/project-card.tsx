@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-type ProjectType = "web" | "backend" | "fullstack" | "mobile" | "other";
+export type ProjectType = "web" | "backend" | "fullstack" | "mobile" | "other";
 
 type Screenshot = {
   url: string;
