@@ -142,7 +142,7 @@ Contenedorización:
         <header className="flex flex-col md:flex-row items-center gap-6 mb-12">
           <div className="relative w-44 h-44 rounded-full overflow-hidden border-4 border-primary/20">
             <Image
-              src="/Profile3.jpeg"
+              src="/profile.jpeg"
               alt="Felipe Oliva"
               fill
               className="object-cover object-center scale-[1.02]"
